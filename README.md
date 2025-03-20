@@ -12,6 +12,7 @@ A basic Chrome extension with popup functionality that demonstrates core extensi
 ## Installation
 
 ### For Developers
+#######
 
 1. Clone this repository:
    ```
