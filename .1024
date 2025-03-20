@@ -1,0 +1,12 @@
+# .1024 Configuration file for project run commands, compilation and debug settings (optional);
+# Any changes made will be auto-saved and take effect immediately.
+# For more information, please refer to the documentation: https://docs.clacky.ai/clacky-workspace/configure
+
+# Command to run when "Run" button clicked
+# For Node.js development
+run_command: node index.js
+
+# Chrome extension development
+# Opens Chrome with the extension loaded for developer testing
+# Note: You may need to adjust the Chrome path based on your operating system
+chrome_extension_command: google-chrome --load-extension=. --no-first-run --user-data-dir=/tmp/chrome-dev-profile

@@ -1,0 +1,222 @@
+/* 
+ * Styles for My Chrome Extension
+ * Provides styling for popup interface and interactive elements
+ */
+
+/* Base styles and variables */
+:root {
+  --primary-color: #4285f4;
+  --primary-hover: #3367d6;
+  --secondary-color: #fbbc05;
+  --text-color: #202124;
+  --light-text: #5f6368;
+  --border-color: #dadce0;
+  --error-color: #ea4335;
+  --success-color: #34a853;
+  --info-color: #4285f4;
+  --background-color: #ffffff;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset and base styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--background-color);
+}
+
+/* Popup container dimensions and styling */
+.popup-container {
+  width: 320px;
+  min-height: 300px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header styling */
+.popup-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+}
+
+.popup-header h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Content section styling */
+.popup-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.popup-content p {
+  margin-bottom: 16px;
+  color: var(--text-color);
+}
+
+.control-group {
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button styling */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: #f1f3f4;
+  color: var(--text-color);
+}
+
+.btn:hover {
+  background-color: #e8eaed;
+}
+
+.btn:active {
+  background-color: #dadce0;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn.primary:active {
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.4);
+}
+
+/* Input field styling */
+.input-field {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+/* Status message styling */
+.status-message {
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 13px;
+  min-height: 20px;
+}
+
+.status-message.success {
+  background-color: rgba(52, 168, 83, 0.1);
+  color: var(--success-color);
+}
+
+.status-message.error {
+  background-color: rgba(234, 67, 53, 0.1);
+  color: var(--error-color);
+}
+
+.status-message.info {
+  background-color: rgba(66, 133, 244, 0.1);
+  color: var(--info-color);
+}
+
+.status-message.loading,
+.status-message.processing {
+  background-color: rgba(251, 188, 5, 0.1);
+  color: var(--secondary-color);
+  position: relative;
+  padding-left: 24px;
+}
+
+.status-message.loading::before,
+.status-message.processing::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Footer styling */
+.popup-footer {
+  padding: 8px 16px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 12px;
+  color: var(--light-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .popup-container {
+    width: 100%;
+  }
+
+  .popup-content {
+    padding: 12px;
+  }
+  
+  .control-group {
+    margin: 12px 0;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e8eaed;
+    --light-text: #9aa0a6;
+    --border-color: #3c4043;
+    --background-color: #202124;
+    --primary-color: #8ab4f8;
+    --primary-hover: #669df6;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.44);
+  }
+}
